@@ -43,7 +43,8 @@ class MusicLibrary {
     }
 
     public static String getRoot() {
-        return "";
+//        return "";
+        return "ttquang_media_player_root";
     }
 
     public static String getSongUri(String mediaId) {

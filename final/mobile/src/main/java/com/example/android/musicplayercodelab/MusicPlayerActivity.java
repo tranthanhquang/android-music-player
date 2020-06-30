@@ -57,7 +57,8 @@ public class MusicPlayerActivity extends AppCompatActivity {
             new MediaBrowser.ConnectionCallback() {
                 @Override
                 public void onConnected() {
-                    mMediaBrowser.subscribe(mMediaBrowser.getRoot(), mSubscriptionCallback);
+//                    mMediaBrowser.subscribe(mMediaBrowser.getRoot(), mSubscriptionCallback);
+                    mMediaBrowser.subscribe(MusicLibrary.getRoot(), mSubscriptionCallback);
                     MediaController mediaController = new MediaController(
                             MusicPlayerActivity.this, mMediaBrowser.getSessionToken());
                     updatePlaybackState(mediaController.getPlaybackState());
@@ -158,7 +159,8 @@ public class MusicPlayerActivity extends AppCompatActivity {
             getMediaController().unregisterCallback(mMediaControllerCallback);
         }
         if (mMediaBrowser != null && mMediaBrowser.isConnected()) {
-            mMediaBrowser.unsubscribe(mCurrentMetadata.getDescription().getMediaId());
+//            mMediaBrowser.unsubscribe(mCurrentMetadata.getDescription().getMediaId());
+            mMediaBrowser.unsubscribe(MusicLibrary.getRoot());
         }
     }
 
